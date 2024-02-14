@@ -1,0 +1,15 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: setup
+- file: conda_cheatsheet
+- file: git
+- file: R_stack_cheatsheet
+- file: bfb
+  sections:
+  - file: Week1
+  - file: Week2-workflows
+- file: jupyterlabtrick_wsl
