@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Bioinformatics cheatsheets &#8212; Bioinformatic cheatsheet</title>
+    <title>WSL incompatibility solutions &#8212; Bioinformatic cheatsheet</title>
   
   
   
@@ -62,10 +62,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'jupyterlabtrick_wsl';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Tools setup" href="setup.html" />
+    <link rel="prev" title="Week 2 - workflows with Nextflow" href="Week2-workflows.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -127,8 +127,6 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -145,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
 
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -165,13 +163,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Bioinformatics cheatsheets
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Tools setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conda_cheatsheet.html">Conda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git &amp; GitHub</a></li>
@@ -184,7 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="Week2-workflows.html">Week 2 - workflows with Nextflow</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="jupyterlabtrick_wsl.html">WSL incompatibility solutions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">WSL incompatibility solutions</a></li>
 </ul>
 
     </div>
@@ -256,7 +254,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fjupyterlabtrick_wsl.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -286,7 +284,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/jupyterlabtrick_wsl.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -296,7 +294,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -357,7 +355,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -368,11 +368,19 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Bioinformatics cheatsheets</h1>
+    <h1>WSL incompatibility solutions</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab-server-not-starting">Jupyter Lab server not starting</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -382,40 +390,30 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="bioinformatics-cheatsheets">
-<h1>Bioinformatics cheatsheets<a class="headerlink" href="#bioinformatics-cheatsheets" title="Permalink to this heading">#</a></h1>
-<p>One place for summarized and organized learning for quick, self-purpose
-reviews. Contains basic data analysis and bioinformatics tools
-explanation..</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><img src="../images/bioinformatics.png" width="100" alt="image" /></p></td>
-<td><p><strong><a class="reference internal" href="setup.html"><span class="doc std std-doc">Set-up for RNA-seq analysis on WSL.</span></a></strong> <br>Notes and cheatsheet from Wellcome Connecting Science course: “Bioinformatics for Biologists”</p></td>
-</tr>
-<tr class="row-odd"><td><p><img src="../images/conda.png" width="100" alt="image" /></p></td>
-<td><p><strong><a class="reference internal" href="conda_cheatsheet.html"><span class="doc std std-doc">Conda:</span></a></strong> Installation of miniconda3, set-up, quick reminder of usage and a cheatsheet.</p></td>
-</tr>
-<tr class="row-even"><td><p><img src="../images/git.png" width="100" alt="image" /></p></td>
-<td><p><strong><a class="reference internal" href="git.html"><span class="doc std std-doc">Git:</span></a></strong> Installation, basic usage and a cheatsheet.</p></td>
-</tr>
-<tr class="row-odd"><td><p><img src="../images/linux.svg" height="80" alt="image" /></p></td>
-<td><p><strong>Linux:</strong> Installation of Windows Subsystem for Linux (WSL), also place for notes about fixes for incompatibility issues.</p></td>
-</tr>
-<tr class="row-even"><td><p><img src="../images/bash.png" width="100" alt="image" /></p></td>
-<td><p><strong>Bash:</strong> Quick cheatsheet for learning by heart most important functions. For bash-based RNA-seq data processing see below.</p></td>
-</tr>
-<tr class="row-odd"><td><p><img src="../images/R_logo.svg" width="100" alt="image" /></p></td>
-<td><p><strong><a class="reference internal" href="R_stack_cheatsheet.html"><span class="doc std std-doc">R stack:</span></a></strong> Currently used R set-up for proteomic data analysis with summary of packages<break> usage and troubleshooting incompatibilities.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="wsl-incompatibility-solutions">
+<h1>WSL incompatibility solutions<a class="headerlink" href="#wsl-incompatibility-solutions" title="Permalink to this heading">#</a></h1>
+<section id="jupyter-lab-server-not-starting">
+<h2>Jupyter Lab server not starting<a class="headerlink" href="#jupyter-lab-server-not-starting" title="Permalink to this heading">#</a></h2>
+<p>Starting Jupyter Lab on WSL with this error:
+<img alt="image" src="../images/wsljupyter.png" /></p>
+<p>Problem solved by:</p>
+<ul class="simple">
+<li><p>generating config file which will be stored in ~/.jupyter folder</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>$ jupyter lab --generate-config
+</pre></div>
 </div>
+</div>
+</div>
+<ul class="simple">
+<li><p>open the file and set the following option to TRUE and unhash</p></li>
+</ul>
+<ul class="simple">
+<li><p>close and start a new console and open jupyter lab again, should do the trick</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -448,14 +446,14 @@ explanation..</p>
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="right-next"
-       href="setup.html"
-       title="next page">
+    <a class="left-prev"
+       href="Week2-workflows.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tools setup</p>
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 2 - workflows with Nextflow</p>
       </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -464,7 +462,20 @@ explanation..</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab-server-not-starting">Jupyter Lab server not starting</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
