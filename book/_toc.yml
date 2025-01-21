@@ -4,10 +4,10 @@
 format: jb-book
 root: intro
 chapters:
+- file: setup
 - file: conda_cheatsheet
 - file: git
 - file: R_stack_cheatsheet
-- file: setup
 - file: bfb
   sections:
   - file: Week1

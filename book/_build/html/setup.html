@@ -7,60 +7,57 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Tools setup &#8212; Bioinformatic cheatsheet</title>
+    <title>System setup &#8212; Bioinformatic cheatsheet</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'setup';</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -76,27 +73,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -118,8 +111,13 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -143,6 +141,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="intro.html">
   
@@ -160,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -177,12 +188,12 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tools setup</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="bfb.html">Course notes: Bioinformatics for Biologists</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">System setup</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="bfb.html">Course notes: Bioinformatics for Biologists</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week1.html">Week 1 - setup, sequencing QC, mapping, variant calling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week2-workflows.html">Week 2 - workflows with Nextflow</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyterlabtrick_wsl.html">WSL incompatibility solutions</a></li>
 </ul>
 
@@ -199,7 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -208,14 +219,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -340,10 +351,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -351,14 +362,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -369,7 +380,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tools setup</h1>
+    <h1>System setup</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -379,9 +390,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#miniconda3">Miniconda3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-subsystem-for-linux">Windows Subsystem for Linux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nextflow">Nextflow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">Singularity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#miniconda3">Miniconda3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">*Singularity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sources">Sources</a></li>
 </ul>
             </nav>
@@ -394,10 +407,83 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tools-setup">
-<h1>Tools setup<a class="headerlink" href="#tools-setup" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="system-setup">
+<h1>System setup<a class="headerlink" href="#system-setup" title="Permalink to this heading">#</a></h1>
+<section id="windows-subsystem-for-linux">
+<h2>Windows Subsystem for Linux<a class="headerlink" href="#windows-subsystem-for-linux" title="Permalink to this heading">#</a></h2>
+<p>Basically follow official instructions at Windows and software site. In short:</p>
+<ul class="simple">
+<li><p>In Windows features enable “Windows Subsystem for Linux” and “Virtual Machine Platforms”, in PS set wsl2 as default</p></li>
+<li><p>Install Ubuntu from Microsoft Store</p></li>
+<li><p>Update Ubuntu</p></li>
+</ul>
+</section>
+<section id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this heading">#</a></h2>
+<p>Follow official instructions on Docker site. In short:</p>
+<ul class="simple">
+<li><p>Install Docker setup with wsl2 (follow instructions on Docker’s page)</p></li>
+<li><p>Open Docker, go to Settings, confirm it is working with wsl2 and Ubuntu</p></li>
+<li><p>Open or create a .wslconfig file in C:\Users\&lt;username&gt; and type: <br />
+‘[wsl2] <br />
+kernelCommandLine = vsyscall=emulate <br />
+memory=whatever u need <br />
+processors=what u have’</p></li>
+<li><p>Start terminal inside docker (it will automatically add docker to PATH so you can call it from shell)</p></li>
+</ul>
+</section>
+<section id="nextflow">
+<h2>Nextflow<a class="headerlink" href="#nextflow" title="Permalink to this heading">#</a></h2>
+<p>Follow official instructions at Nextflow site. In short:</p>
+<ul class="simple">
+<li><p>Install java if missing ‘java -version’, ‘sudo apt install default-jre’</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>$ java -version
+$ sudo apt install default-jre
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Install Nextflow</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>$ cd /
+$ curl -fsSL get.nextflow.io | bash
+$ mv nextflow bin/ # add to path
+$ which nextflow # confirm
+# close and reopen
+$ nextflow help # for confirmation of installation
+$ nextflow self-update # update
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  File &quot;&lt;ipython-input-1-875bb003884f&gt;&quot;, line 1
+    $ cd /
+    ^
+SyntaxError: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Test whatever nf-core pipeline. If WSL2, Docker and Nextflow were installed and configured correctly, the setup should be ready to go. Test for example:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>$ nextflow run nf-core/rnaseq -profile test,docker --outdir &lt;FOLDER&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="miniconda3">
 <h2>Miniconda3<a class="headerlink" href="#miniconda3" title="Permalink to this heading">#</a></h2>
+<p>For controlled package environments</p>
 <ul class="simple">
 <li><p>Due to limited disk space and bigger control, for now I prefer to use Miniconda over Anaconda</p></li>
 </ul>
@@ -433,52 +519,8 @@ $ conda activate MOOC
 </div>
 </div>
 </section>
-<section id="nextflow">
-<h2>Nextflow<a class="headerlink" href="#nextflow" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>First ensure you have at least version 8 of java installed. Check by:</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>$ java -version
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>If not, good luck with installing it on WSL so it works with Nextflow. Try to proceed:</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>$ curl -fsSL get.nextflow.io | bash # download and install nf
-$ mv nextflow ~/bin/ # good practice to add it to your PATH so you can call it from anywhere
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Workaround is to set it up in conda env:</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># configure channels if not done yet
-$ conda config --add channels defaults
-$ conda config --add channels bioconda
-$ conda config --add channels conda-forge
-
-# create an env and install nf
-$ conda create --name nextflow nextflow
-$ conda activate nextflow
-
-# check if it works
-$ nextflow help
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="singularity">
-<h2>Singularity<a class="headerlink" href="#singularity" title="Permalink to this heading">#</a></h2>
+<h2>*Singularity<a class="headerlink" href="#singularity" title="Permalink to this heading">#</a></h2>
 <p><b>Note:</b> Most nf-core pipelines support Conda but it’s recommended to use Docker or Singularity instead. Singularity unlike Docker doesn’t require root (admin) access to install.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -538,7 +580,7 @@ $ sudo apt install -y singularity-ce</pre>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -575,9 +617,11 @@ $ sudo apt install -y singularity-ce</pre>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#miniconda3">Miniconda3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windows-subsystem-for-linux">Windows Subsystem for Linux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nextflow">Nextflow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">Singularity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#miniconda3">Miniconda3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">*Singularity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sources">Sources</a></li>
 </ul>
   </nav></div>
@@ -603,7 +647,7 @@ By Martyna Muszczek
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -627,8 +671,8 @@ By Martyna Muszczek
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
