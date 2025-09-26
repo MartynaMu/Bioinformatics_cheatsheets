@@ -12,3 +12,4 @@ notes from undertaken courses. The site was created with Jupyter Books.
 | <img src="_images/git.png" width="100" alt="image" />            | **[Git:](git.ipynb)** Installation, basic usage and a cheatsheet.                                                                                                      |
 | <img src="_images/bash.png" width="100" alt="image" />           | **Bash:** Quick cheatsheet for learning by heart most important functions. For bash-based RNA-seq data processing see below.                                           |
 | <img src="_images/R_logo.svg" width="100" alt="image" />         | **[R stack:](R_stack_cheatsheet.md)** Currently used R set-up for proteomic data analysis with summary of packages<break> usage and troubleshooting incompatibilities. |
+

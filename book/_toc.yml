@@ -12,4 +12,5 @@ chapters:
   sections:
   - file: Week1
   - file: Week2-workflows
+- file: proteogenomics
 - file: jupyterlabtrick_wsl

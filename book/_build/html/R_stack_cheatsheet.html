@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'R_stack_cheatsheet';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="System setup" href="setup.html" />
+    <link rel="next" title="Course notes: Bioinformatics for Biologists" href="bfb.html" />
     <link rel="prev" title="Git &amp; GitHub" href="git.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -182,18 +182,19 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="setup.html">System setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conda_cheatsheet.html">Conda</a></li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">Git &amp; GitHub</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">R stack for -omics data</a></li>
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="setup.html">System setup</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="bfb.html">Course notes: Bioinformatics for Biologists</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="Week1.html">Week 1 - setup, sequencing QC, mapping, variant calling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Week2-workflows.html">Week 2 - workflows with Nextflow</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="proteogenomics.html">Proteogenomics for neoantigen discovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyterlabtrick_wsl.html">WSL incompatibility solutions</a></li>
 </ul>
 
@@ -399,6 +400,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcatools">5. PCAtools</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eulerr">6. eulerr</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corrplot">7. corrplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ggpubr-patchwork">8. ggpubr &amp; patchwork</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#session-info">Session info</a></li>
@@ -417,7 +419,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="r-stack-for-omics-data">
 <h1>R stack for -omics data<a class="headerlink" href="#r-stack-for-omics-data" title="Permalink to this heading">#</a></h1>
-<p>Martyna Muszczek
+<p>Martyna Siewiera
 2024-02-14</p>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="scope">
@@ -1290,6 +1292,10 @@ post-normalization.</p>
 </pre></div>
 </div>
 </section>
+<section id="ggpubr-patchwork">
+<h2>8. ggpubr &amp; patchwork<a class="headerlink" href="#ggpubr-patchwork" title="Permalink to this heading">#</a></h2>
+<p>Organize figures in ready-to-publish panels.</p>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="session-info">
 <h1>Session info<a class="headerlink" href="#session-info" title="Permalink to this heading">#</a></h1>
@@ -1441,11 +1447,11 @@ post-normalization.</p>
       </div>
     </a>
     <a class="right-next"
-       href="setup.html"
+       href="bfb.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">System setup</p>
+        <p class="prev-next-title">Course notes: Bioinformatics for Biologists</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1474,6 +1480,7 @@ post-normalization.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcatools">5. PCAtools</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eulerr">6. eulerr</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#corrplot">7. corrplot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ggpubr-patchwork">8. ggpubr &amp; patchwork</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#session-info">Session info</a></li>
@@ -1493,7 +1500,7 @@ post-normalization.</p>
   <div class="footer-item">
     
 <p class="component-author">
-By Martyna Muszczek
+By Martyna Siewiera
 </p>
 
   </div>

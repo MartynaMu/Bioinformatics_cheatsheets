@@ -1,6 +1,6 @@
 R stack for -omics data
 ================
-Martyna Muszczek
+Martyna Siewiera
 2024-02-14
 
 # Scope
@@ -914,6 +914,10 @@ corr <- cor(log2(mat), use="complete.obs")
 #visualize
 corrplot(corr, method = "color", hclust.method = "ward.D2", is.corr = FALSE, col = COL1("OrRd"))
 ```
+
+## 8. ggpubr & patchwork
+
+Organize figures in ready-to-publish panels.
 
 # Session info
 

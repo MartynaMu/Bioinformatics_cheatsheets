@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Bioinformatic cheatsheet
-author: Martyna Muszczek
+author: Martyna Siewiera
 logo: logo.png
 
 # Force re-execution of notebooks on each build.

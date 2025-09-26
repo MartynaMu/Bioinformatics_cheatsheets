@@ -1,0 +1,874 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Proteogenomics for neoantigen discovery &#8212; Bioinformatic cheatsheet</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.4cbf315f70debaebd550c87a6162cf0f.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'proteogenomics';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="WSL incompatibility solutions" href="jupyterlabtrick_wsl.html" />
+    <link rel="prev" title="Week 2 - workflows with Nextflow" href="Week2-workflows.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Bioinformatic cheatsheet - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Bioinformatic cheatsheet - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bioinformatics cheatsheets
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="setup.html">System setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda_cheatsheet.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git.html">Git &amp; GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="R_stack_cheatsheet.html">R stack for -omics data</a></li>
+
+
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="bfb.html">Course notes: Bioinformatics for Biologists</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Week1.html">Week 1 - setup, sequencing QC, mapping, variant calling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Week2-workflows.html">Week 2 - workflows with Nextflow</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Proteogenomics for neoantigen discovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyterlabtrick_wsl.html">WSL incompatibility solutions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fproteogenomics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/proteogenomics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Proteogenomics for neoantigen discovery</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-set-up">Computational set-up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-input">Data input:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-and-environments">Tools and environments:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step">Step by step:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fastqc-and-multiqc">1. FASTQC and MULTIQC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-sheet-preparation">2. Sample sheet preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rna-seq-nextflow-pipeline-with-optional-reference-mapping-with-star">3. RNA-seq Nextflow pipeline with optional reference mapping with STAR</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-new-transcripts">Evaluate new transcripts:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-fasta-dictionary">4. Create fasta dictionary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variant-calling">5. Variant calling</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#somatic-variants-call-mutect2">Somatic variants call - Mutect2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#germline-variant-calling">Germline variant calling</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variant-annotation-and-filtering">Variant annotation and filtering</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-for-non-synonymous-variants-i-a-non-silent-resulting-in-a-change-in-aa-sequence">6. Filter for non-synonymous variants (i.a. non-silent, resulting in a change in AA sequence)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-mutations-which-were-found-as-germline-and-somatic">7. Find mutations which were found as germline AND somatic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reasonable-read-depth-for-variants">Reasonable read depth for variants:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incorporate-variants-into-nucleotide-fasta-reference">8. Incorporate variants into nucleotide FASTA reference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translate-nucleotide-fasta-with-variants-to-fasta-aa-sequence-with-6-frames-three-forward-and-three-reverse-frames">9. Translate nucleotide FASTA with variants to FASTA AA sequence with 6 frames (three forward and three reverse frames)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="proteogenomics-for-neoantigen-discovery">
+<h1>Proteogenomics for neoantigen discovery<a class="headerlink" href="#proteogenomics-for-neoantigen-discovery" title="Permalink to this heading">#</a></h1>
+<p>Martyna Siewiera
+2025-09-26</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="computational-set-up">
+<h2>Computational set-up<a class="headerlink" href="#computational-set-up" title="Permalink to this heading">#</a></h2>
+<p>Windows 10 with wsl2, docker, nextflow, miniconda</p>
+</section>
+<section id="data-input">
+<h2>Data input:<a class="headerlink" href="#data-input" title="Permalink to this heading">#</a></h2>
+<p>• .fastq files from RNA sequencing of paired tumor and nascent adjacent
+tissue or PBMC</p>
+<p>• Reference genome FASTA from ensemble, 113 release, soft-masked,
+primary assembly</p>
+</section>
+<section id="tools-and-environments">
+<h2>Tools and environments:<a class="headerlink" href="#tools-and-environments" title="Permalink to this heading">#</a></h2>
+<p>• GATK4</p>
+<p>• Samtools …</p>
+<p>• Bcftools …</p>
+<p>• RNA-seq pipeline …</p>
+</section>
+<section id="notes">
+<h2>Notes:<a class="headerlink" href="#notes" title="Permalink to this heading">#</a></h2>
+<p>First process the truncated .fastq files to ensure the pipeline is
+working, use seqtk, for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gzip<span class="w"> </span>-d<span class="w"> </span>&lt;<span class="m">1</span>.FASTQ.GZ&gt;
+gzip<span class="w"> </span>-d<span class="w"> </span>&lt;<span class="m">2</span>.FASTQ.GZ&gt;
+
+seqtk<span class="w"> </span>-s100<span class="w"> </span>&lt;<span class="m">1</span>.FASTQ&gt;<span class="w"> </span><span class="m">100000</span><span class="w"> </span>&gt;<span class="w"> </span>sub1.FASTQ
+seqtk<span class="w"> </span>-s100<span class="w"> </span>&lt;<span class="m">2</span>.FASTQ&gt;<span class="w"> </span><span class="m">100000</span><span class="w"> </span>&gt;<span class="w"> </span>sub2.FASTQ
+
+gzip<span class="w"> </span>*.FASTQ
+</pre></div>
+</div>
+</section>
+<section id="step-by-step">
+<h2>Step by step:<a class="headerlink" href="#step-by-step" title="Permalink to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="fastqc-and-multiqc">
+<h3>1. FASTQC and MULTIQC<a class="headerlink" href="#fastqc-and-multiqc" title="Permalink to this heading">#</a></h3>
+<p>It’s better to evaluate the sequencing quality before running the whole
+pipeline. Then you can skip those later.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>MOOC
+
+mkdir<span class="w"> </span>-p<span class="w"> </span>QC_Reports
+
+fastqc<span class="w"> </span>*_1.fastq<span class="w"> </span>*_2.fastq<span class="w"> </span>--ourdir<span class="w"> </span>QC_Reports
+
+multiqc<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="sample-sheet-preparation">
+<h3>2. Sample sheet preparation<a class="headerlink" href="#sample-sheet-preparation" title="Permalink to this heading">#</a></h3>
+<p>A list of fastq files and their association is required for the RNASEQ
+pipeline. Use ‘create-samplesheet.R’ script, that goes like this:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<span class="n">path_to_project</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;D:/NSCLC_cohort&quot;</span><span class="w"> </span><span class="c1">#directory of the project</span>
+<span class="nf">setwd</span><span class="p">(</span><span class="n">path_to_project</span><span class="p">)</span>
+
+<span class="n">files</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">list.files</span><span class="p">(</span><span class="s">&quot;data&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">full.names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">)</span><span class="w"> </span><span class="c1">#directory of where the fastq files are</span>
+<span class="n">samples</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">files</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">str_sub</span><span class="p">(</span><span class="n">end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">-12</span><span class="p">,</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="p">)</span><span class="w"> </span><span class="o">%&gt;%</span>
+<span class="w">  </span><span class="nf">unique</span><span class="p">()</span>
+
+<span class="n">samplesheet</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">data.frame</span><span class="p">(</span><span class="n">sample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">samples</span><span class="p">,</span>
+<span class="w">                          </span><span class="n">fastq_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">keep</span><span class="p">(</span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="nf">str_detect</span><span class="p">(</span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;_1&quot;</span><span class="p">)),</span>
+<span class="w">                          </span><span class="n">fastq_2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">keep</span><span class="p">(</span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="nf">str_detect</span><span class="p">(</span><span class="n">files</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;_2&quot;</span><span class="p">)),</span>
+<span class="w">                          </span><span class="n">strandedness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;auto&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># or reverse if confirmed</span>
+
+<span class="nf">write_csv</span><span class="p">(</span><span class="n">samplesheet</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;samplesheet.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="rna-seq-nextflow-pipeline-with-optional-reference-mapping-with-star">
+<h3>3. RNA-seq Nextflow pipeline with optional reference mapping with STAR<a class="headerlink" href="#rna-seq-nextflow-pipeline-with-optional-reference-mapping-with-star" title="Permalink to this heading">#</a></h3>
+<p>Open docker app, in terminal go to the project directory and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>nextflow<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>nf-core/rnaseq<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--input<span class="w"> </span>samplesheet.csv<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--fasta<span class="w"> </span>/mnt/d/Reference/113-Release/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--gtf<span class="w"> </span>/mnt/d/Reference/113-Release/Homo_sapiens.GRCh38.dna_sm.primary_assembly.gtf<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--star_index<span class="w"> </span>/mnt/d/Reference/STAR_reference/index/star<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--outdir<span class="w"> </span>results<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--email<span class="w"> </span>mamuszcz@gmail.com<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--aligner<span class="w"> </span>star_salmon<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--stringtie_ignore_gtf<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\ </span><span class="c1">#will use new transcripts resulted from stringtie</span>
+<span class="w">  </span>--save_align_intermeds<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--skip_fastqc<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--extra_star_align_args<span class="w"> </span><span class="s1">&#39;--outTmpDir ~/star_temp&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-profile<span class="w"> </span>docker<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span>star.config
+</pre></div>
+</div>
+<p>star.config file looks as follows:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>process {
+  resourceLimits = [
+    cpus: 7,  # leave some for other processes
+    memory: &#39;27.GB&#39;, # with wsl2 set to 30 out of 32 GB
+    time: 24.h
+  ]
+  withName: STAR_GENOMEGENERATE { # in case you wanna index with STAR
+    ext.args = [
+      &#39;--genomeChrBinNbits 15&#39;,
+      &#39;--genomeSAsparseD 2&#39;
+    ].join(&#39; &#39;).trim()
+  }
+}
+</pre></div>
+</div>
+<section id="evaluate-new-transcripts">
+<h4>Evaluate new transcripts:<a class="headerlink" href="#evaluate-new-transcripts" title="Permalink to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gffcompare<span class="w"> </span>-G<span class="w"> </span>-r<span class="w"> </span>/mnt/d/Reference/113-Release/Homo_sapiens.GRCh38.113.gtf<span class="w"> </span>results/star_salmon/stringtie/SAMPLE.transcripts.gtf
+</pre></div>
+</div>
+<p>You may want to add new transcripts to the fresh run and calculate their
+abundance</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="create-fasta-dictionary">
+<h3>4. Create fasta dictionary<a class="headerlink" href="#create-fasta-dictionary" title="Permalink to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gatk<span class="w"> </span>CreateSequenceDictionary<span class="w"> </span>-R<span class="w"> </span>/mnt/d/Reference/113-Release/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="variant-calling">
+<h3>5. Variant calling<a class="headerlink" href="#variant-calling" title="Permalink to this heading">#</a></h3>
+<p>With RNA-seq data, we must splt N cigars which splits reads by splice
+junctions that Mutect2 isn’t aware of</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gatk<span class="w"> </span>SplitNCigarReads<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-R<span class="w"> </span>/mnt/d/Reference/113-Release/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-I<span class="w"> </span>sampleA.markdup.sorted.bam<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-O<span class="w"> </span>sampleA.markdup.sorted.split.bam<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--create-output-bam-index<span class="w"> </span><span class="nb">true</span>
+</pre></div>
+</div>
+<section id="somatic-variants-call-mutect2">
+<h4>Somatic variants call - Mutect2<a class="headerlink" href="#somatic-variants-call-mutect2" title="Permalink to this heading">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gatk<span class="w"> </span>Mutect2<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-R<span class="w"> </span>/mnt/d/Reference/113-Release/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-I<span class="w"> </span>sampleB.markdup.sorted.split.bam<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-I<span class="w"> </span>sampleA.markdup.sorted.split.bam<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-normal<span class="w"> </span>sampleA<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--dont-use-soft-clipped-bases<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>sample_somatic_variants.vcf<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--min-base-quality-score<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="c1"># optional</span>
+<span class="w">  </span><span class="c1"># --genotype-germline-sites true</span>
+</pre></div>
+</div>
+<p>Now filter Mutect2 calls</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gatk<span class="w"> </span>FilterMutectCalls<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-R<span class="w"> </span>/mnt/d/Reference/113-Release/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-V<span class="w"> </span>sample_somatic_variants.vcf<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-O<span class="w"> </span>sample_somatic_variants_FILT.vcf
+</pre></div>
+</div>
+</section>
+<section id="germline-variant-calling">
+<h4>Germline variant calling<a class="headerlink" href="#germline-variant-calling" title="Permalink to this heading">#</a></h4>
+<p>Call tumor and benign tissue one by one:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gatk<span class="w"> </span>HaplotypeCaller<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-Xmx26g<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-R<span class="w"> </span>/mnt/d/Reference/113-Release/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-I<span class="w"> </span>sampleA.markdup.sorted.split.bam<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-O<span class="w"> </span>sampleA.g.vcf.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-ERC<span class="w"> </span>GVCF<span class="w"> </span><span class="se">\ </span><span class="c1"># generates a GVCF for later joint genotyping for tumor and healthy tissue </span>
+<span class="w">  </span>--dont-use-soft-clipped-bases<span class="w"> </span><span class="c1"># i.a. dont use introns (?)</span>
+<span class="w">  </span>
+</pre></div>
+</div>
+<p>Combine GVCF files for common SNV &lt;- germline</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gatk<span class="w"> </span>CombineGVCFs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-R<span class="w"> </span>/mnt/d/Reference/113-Release/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--variant<span class="w"> </span>sampleA.g.vcf.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--variant<span class="w"> </span>sampleB.g.vcf.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-O<span class="w"> </span>sample_combined.g.vcf.gz
+</pre></div>
+</div>
+<p>Genotype the variants:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gatk<span class="w"> </span>GenotypeGVCFs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-R<span class="w"> </span>/mnt/d/Reference/113-Release/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-V<span class="w"> </span>sample_combined.g.vcf.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-O<span class="w"> </span>sample_germline_variants.vcf
+</pre></div>
+</div>
+</section>
+<section id="variant-annotation-and-filtering">
+<h4>Variant annotation and filtering<a class="headerlink" href="#variant-annotation-and-filtering" title="Permalink to this heading">#</a></h4>
+<p>How many variants pass the filter?</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>grep<span class="w"> </span>-o<span class="w"> </span><span class="s1">&#39;SITE&#39;</span><span class="w"> </span>sample_somatic_variants_FILT.vcf<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</pre></div>
+</div>
+<p>You can save only the records that PASS the filter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bcftools<span class="w"> </span>view<span class="w"> </span>-f<span class="w"> </span>PASS<span class="w"> </span>sample_somatic_variants_FILT.vcf<span class="w"> </span>-o<span class="w"> </span>sample_somatic_variants_FILT2.vcf<span class="w"> </span>
+</pre></div>
+</div>
+<p>Annotate with SnpEff or … to estimate the effects of the variant.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>snpEff<span class="w"> </span>-Xmx26g<span class="w"> </span>GRCh38.p14<span class="w"> </span>-cvsStats<span class="w"> </span>sample_vc_summary.csv<span class="w"> </span>-v<span class="w"> </span>sample_somatic_variants_FILT.vcf<span class="w"> </span>&gt;<span class="w"> </span>sample_somatic_variants_ANN.vcf
+<span class="c1"># or without csv summary</span>
+snpEff<span class="w"> </span>-Xmx26g<span class="w"> </span>GRCh38.p14<span class="w"> </span>-v<span class="w"> </span>sample_somatic_variants_FILT.vcf<span class="w"> </span>&gt;<span class="w"> </span>sample_somatic_variants_ANN.vcf
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>SnpSift<span class="w"> </span>-Xmx26g<span class="w"> </span>annotate<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/mnt/d/Reference/ClinVar/clinvar.vcf.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sample_somatic_variants_ANN.vcf<span class="w"> </span>&gt;<span class="w"> </span>sample_somatic_variants_ANN_CLINVAR.vcf
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="filter-for-non-synonymous-variants-i-a-non-silent-resulting-in-a-change-in-aa-sequence">
+<h3>6. Filter for non-synonymous variants (i.a. non-silent, resulting in a change in AA sequence)<a class="headerlink" href="#filter-for-non-synonymous-variants-i-a-non-silent-resulting-in-a-change-in-aa-sequence" title="Permalink to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bcftools<span class="w"> </span>view<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-i<span class="w"> </span><span class="s2">&quot;INFO/ANN~&#39;missense-variants\|stop_gained\|stop_lost\|start_lost&#39;&quot;</span><span class="w"> </span>sample_somatic_variants_ANN.vcf<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span>sample_somatic_variants_ANN_NS.vcf
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="find-mutations-which-were-found-as-germline-and-somatic">
+<h3>7. Find mutations which were found as germline AND somatic<a class="headerlink" href="#find-mutations-which-were-found-as-germline-and-somatic" title="Permalink to this heading">#</a></h3>
+<p>Prepare for intersection:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bgzip<span class="w"> </span>-c<span class="w"> </span>sampleA.vcf<span class="w"> </span>&gt;<span class="w"> </span>sampleA.vcf.gz
+tabix<span class="w"> </span>-p<span class="w"> </span>vcf<span class="w"> </span>sampleA.vcf.gz
+</pre></div>
+</div>
+<p>Find and save shared variants between germline and somatic:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bcftools<span class="w"> </span>isec<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-n<span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-O<span class="w"> </span>v<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span>sample_shared_variants.vcf<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sample_somatic_variants.vcf.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sample_germline_variants.vcf.gz<span class="w"> </span>
+</pre></div>
+</div>
+<p>Identify and save somatic only:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bcftools<span class="w"> </span>isec<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-n<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span>none<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-O<span class="w"> </span>v<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span>sample_somatic_only_variants.vcf<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sample_somatic_variants.vcf.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sample_germline_variants.vcf.gz
+</pre></div>
+</div>
+<p>Identify and save germline only:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bcftools<span class="w"> </span>isec<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-n<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span>none<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-O<span class="w"> </span>v<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span>sample_germline_only_variants.vcf<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sample_germline_variants.vcf.gz<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>sample_somatic_variants.vcf.gz
+</pre></div>
+</div>
+<section id="reasonable-read-depth-for-variants">
+<h4>Reasonable read depth for variants:<a class="headerlink" href="#reasonable-read-depth-for-variants" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>somatic: 100 dp</p></li>
+<li><p>germline polymorphism: 30 dp</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="incorporate-variants-into-nucleotide-fasta-reference">
+<h3>8. Incorporate variants into nucleotide FASTA reference<a class="headerlink" href="#incorporate-variants-into-nucleotide-fasta-reference" title="Permalink to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gatk<span class="w"> </span>FastaAlternateReferenceMaker<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-R<span class="w"> </span>/mnt/d/Reference/113-Release/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-O<span class="w"> </span>output.fasta<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>-V<span class="w"> </span>input.vcf<span class="w"> </span><span class="se">\</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="translate-nucleotide-fasta-with-variants-to-fasta-aa-sequence-with-6-frames-three-forward-and-three-reverse-frames">
+<h3>9. Translate nucleotide FASTA with variants to FASTA AA sequence with 6 frames (three forward and three reverse frames)<a class="headerlink" href="#translate-nucleotide-fasta-with-variants-to-fasta-aa-sequence-with-6-frames-three-forward-and-three-reverse-frames" title="Permalink to this heading">#</a></h3>
+<p>Acc. to perplexity, use either Online tools:</p>
+<p>• <a class="reference external" href="https://www.ebi.ac.uk/jdispatcher/st/emboss_transeq">https://www.ebi.ac.uk/jdispatcher/st/emboss_transeq</a></p>
+<p>• <a class="reference external" href="https://www.bioinformatics.org/sms2/translate.html">https://www.bioinformatics.org/sms2/translate.html</a></p>
+<p>Offline:</p>
+<p>• biostring R package <code class="docutils literal notranslate"><span class="pre">translate()</span></code></p>
+<p>• Biopython Bio.Seq (Seq) and Bio.Alphabet (IUPAC) modules -
+<code class="docutils literal notranslate"><span class="pre">translate()</span></code></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Week2-workflows.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Week 2 - workflows with Nextflow</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="jupyterlabtrick_wsl.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">WSL incompatibility solutions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-set-up">Computational set-up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-input">Data input:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tools-and-environments">Tools and environments:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">Notes:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-by-step">Step by step:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fastqc-and-multiqc">1. FASTQC and MULTIQC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-sheet-preparation">2. Sample sheet preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rna-seq-nextflow-pipeline-with-optional-reference-mapping-with-star">3. RNA-seq Nextflow pipeline with optional reference mapping with STAR</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-new-transcripts">Evaluate new transcripts:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-fasta-dictionary">4. Create fasta dictionary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variant-calling">5. Variant calling</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#somatic-variants-call-mutect2">Somatic variants call - Mutect2</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#germline-variant-calling">Germline variant calling</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variant-annotation-and-filtering">Variant annotation and filtering</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-for-non-synonymous-variants-i-a-non-silent-resulting-in-a-change-in-aa-sequence">6. Filter for non-synonymous variants (i.a. non-silent, resulting in a change in AA sequence)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-mutations-which-were-found-as-germline-and-somatic">7. Find mutations which were found as germline AND somatic</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reasonable-read-depth-for-variants">Reasonable read depth for variants:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incorporate-variants-into-nucleotide-fasta-reference">8. Incorporate variants into nucleotide FASTA reference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#translate-nucleotide-fasta-with-variants-to-fasta-aa-sequence-with-6-frames-three-forward-and-three-reverse-frames">9. Translate nucleotide FASTA with variants to FASTA AA sequence with 6 frames (three forward and three reverse frames)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Martyna Siewiera
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
